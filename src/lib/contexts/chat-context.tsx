@@ -34,11 +34,11 @@ export function ChatProvider({
   const { fileSystem, handleToolCall } = useFileSystem();
 
   const {
-    messages,
-    input,
+    messages = [],
+    input = "",
     handleInputChange,
     handleSubmit,
-    status,
+    status = "idle",
   } = useAIChat({
     api: "/api/chat",
     initialMessages,
@@ -58,13 +58,19 @@ export function ChatProvider({
     }
   }, [messages, fileSystem, projectId]);
 
+  // Provide no-op handlers if they're undefined
+  const safeHandleInputChange = handleInputChange || (() => {});
+  const safeHandleSubmit = handleSubmit || ((e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  });
+
   return (
     <ChatContext.Provider
       value={{
         messages,
         input,
-        handleInputChange,
-        handleSubmit,
+        handleInputChange: safeHandleInputChange,
+        handleSubmit: safeHandleSubmit,
         status,
       }}
     >

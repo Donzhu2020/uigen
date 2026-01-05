@@ -22,3 +22,4 @@
  GET / 500 in 4318ms
  ✓ Compiled /favicon.ico in 201ms
  GET /favicon.ico 200 in 443ms
+ ✓ Compiled in 366ms
