@@ -1,0 +1,24 @@
+   ▲ Next.js 15.5.9 (Turbopack)
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.10.114:3000
+   - Environments: .env
+
+ ✓ Starting...
+ ✓ Compiled middleware in 89ms
+ ✓ Ready in 757ms
+ ○ Compiling / ...
+ ✓ Compiled / in 3.8s
+ ⨯ TypeError: Cannot read properties of undefined (reading 'trim')
+    at MessageInput (src/components/chat/MessageInput.tsx:43:41)
+  41 |         <button 
+  42 |           type="submit" 
+> 43 |           disabled={isLoading || !input.trim()}
+     |                                         ^
+  44 |           className="absolute right-3 bottom-3 p-2.5 rounded-lg transition-all hover:bg-blue-50 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-transparent group"
+  45 |         >
+  46 |           <Send className={`h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${isLoading || !input.trim() ? 'text-neutral-300' : 'text-blue-600'}`} /> {
+  digest: '3669654071'
+}
+ GET / 500 in 4318ms
+ ✓ Compiled /favicon.ico in 201ms
+ GET /favicon.ico 200 in 443ms
